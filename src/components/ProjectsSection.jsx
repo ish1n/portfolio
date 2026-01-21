@@ -26,7 +26,7 @@ const projects = [
     image: "/projects/stock.png",
     tags: ["Pandas", "LSTM", "ARIMA", "Plotly"],
     demoUrl: "#",
-    githubUrl: "https://github.com/ishin",
+    githubUrl: "https://github.com/ish1n",
   },
 ];
 
