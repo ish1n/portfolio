@@ -16,12 +16,14 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      // Using window.scrollY for better cross-browser compatibility
       setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <nav
       className={cn(
@@ -53,25 +55,26 @@ export const Navbar = () => {
           ))}
         </div>
 
-        {/* mobile nav */}
-
+        {/* mobile nav toggle button */}
+        {/* Added 'fixed top-4 right-4' to prevent overlap with ThemeToggle */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
+          className="md:hidden fixed top-4 right-4 p-2 text-foreground z-50 transition-colors"
           aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
         >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
+        {/* mobile nav overlay */}
         <div
-  className={cn(
-    "fixed inset-0 bg-background z-40 flex flex-col items-center justify-center", // Removed /95 opacity
-    "transition-all duration-300 md:hidden",
-    isMenuOpen
-      ? "opacity-100 pointer-events-auto"
-      : "opacity-0 pointer-events-none"
-  )}
->
+          className={cn(
+            "fixed inset-0 bg-background z-40 flex flex-col items-center justify-center",
+            "transition-all duration-300 md:hidden",
+            isMenuOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          )}
+        >
           <div className="flex flex-col space-y-8 text-xl">
             {navItems.map((item, key) => (
               <a
