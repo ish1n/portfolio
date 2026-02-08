@@ -26,13 +26,21 @@ export const AboutSection = () => {
               and I enjoy learning new technologies while turning ideas into
               functional, user-focused solutions.
             </p>
-
+<div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="mailto:ishangupta409@gmail.com" className="cosmic-button">
                 Get In Touch
               </a>
 
               
+            </div>
+             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
+             <a href="public\Ishan_resume (1).pdf" download="Ishan_resume(1)" className="cosmic-button">
+     Download
+              </a>
+
+              
+            </div>
             </div>
           </div>
 
